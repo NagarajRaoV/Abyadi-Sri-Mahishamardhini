@@ -1,0 +1,243 @@
+// Prisma schema for Abyadi Sri Mahishamardhini Temple
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─────────────────────────────────────────────
+// Users / Admin
+// ─────────────────────────────────────────────
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  phone     String?
+  role      Role     @default(DEVOTEE)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  bookings  Booking[]
+  donations Donation[]
+}
+
+enum Role {
+  ADMIN
+  SEVA_MANAGER
+  CONTENT_EDITOR
+  DEVOTEE
+}
+
+// ─────────────────────────────────────────────
+// Sevas & Poojas
+// ─────────────────────────────────────────────
+model Seva {
+  id               String   @id @default(cuid())
+  name             String
+  nameKannada      String?
+  nameHindi        String?
+  description      String
+  descriptionKn    String?
+  descriptionHi    String?
+  duration         String   // e.g. "30 min"
+  amount           Float
+  includedItems    String[] // e.g. ["Prasad", "Archana ticket"]
+  isHunnimeSpecial Boolean  @default(false)
+  isActive         Boolean  @default(true)
+  maxPerDay        Int?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  bookings Booking[]
+  timeSlots SevaTimeSlot[]
+}
+
+model SevaTimeSlot {
+  id        String   @id @default(cuid())
+  sevaId    String
+  seva      Seva     @relation(fields: [sevaId], references: [id])
+  startTime String   // "06:00"
+  endTime   String   // "07:00"
+  capacity  Int      @default(10)
+  isActive  Boolean  @default(true)
+}
+
+// ─────────────────────────────────────────────
+// Hunnime (Full Moon) Schedule
+// ─────────────────────────────────────────────
+model HunnimeSchedule {
+  id          String   @id @default(cuid())
+  date        DateTime @unique
+  title       String   @default("Hunnime Pooja")
+  description String?
+  timeline    Json     // Array of { time, ritual, notes }
+  isSpecial   Boolean  @default(false) // e.g., Karthika Pournami
+  specialNote String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  bookings Booking[]
+}
+
+// ─────────────────────────────────────────────
+// Bookings
+// ─────────────────────────────────────────────
+model Booking {
+  id               String        @id @default(cuid())
+  bookingRef       String        @unique @default(cuid())
+  userId           String?
+  user             User?         @relation(fields: [userId], references: [id])
+  devoteeName      String
+  devoteePhone     String
+  devoteeEmail     String
+  sevaId           String
+  seva             Seva          @relation(fields: [sevaId], references: [id])
+  bookingDate      DateTime
+  timeSlot         String?
+  hunnimeId        String?
+  hunnime          HunnimeSchedule? @relation(fields: [hunnimeId], references: [id])
+  amount           Float
+  paymentStatus    PaymentStatus @default(PENDING)
+  paymentId        String?       // Razorpay payment ID
+  orderId          String?       // Razorpay order ID
+  isHunnimeBooking Boolean       @default(false)
+  notes            String?
+  gotra            String?
+  nakshatram       String?
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
+
+// ─────────────────────────────────────────────
+// Donations
+// ─────────────────────────────────────────────
+model Donation {
+  id           String         @id @default(cuid())
+  donationRef  String         @unique @default(cuid())
+  userId       String?
+  user         User?          @relation(fields: [userId], references: [id])
+  donorName    String
+  donorEmail   String
+  donorPhone   String?
+  donorPAN     String?
+  amount       Float
+  category     DonationCategory
+  message      String?
+  isRecurring  Boolean        @default(false)
+  frequency    String?        // "monthly" | "quarterly"
+  paymentStatus PaymentStatus @default(PENDING)
+  paymentId    String?
+  orderId      String?
+  receipt80G   String?        // URL to PDF receipt
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+}
+
+enum DonationCategory {
+  GENERAL
+  ANNADANAM
+  RENOVATION
+  FESTIVAL_FUND
+  HUNNIME_POOJA
+  GOPURAM
+  EDUCATION
+}
+
+// ─────────────────────────────────────────────
+// Events & Festivals
+// ─────────────────────────────────────────────
+model Event {
+  id          String    @id @default(cuid())
+  title       String
+  titleKn     String?
+  titleHi     String?
+  description String
+  descKn      String?
+  descHi      String?
+  startDate   DateTime
+  endDate     DateTime?
+  isHunnime   Boolean   @default(false)
+  isFeatured  Boolean   @default(false)
+  category    EventCategory @default(FESTIVAL)
+  image       String?
+  specialSevas String[]
+  parkingNotes String?
+  transportNotes String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+enum EventCategory {
+  FESTIVAL
+  HUNNIME
+  DAILY_RITUAL
+  BRAHMOTSAVA
+  SPECIAL
+}
+
+// ─────────────────────────────────────────────
+// Darshan Timings
+// ─────────────────────────────────────────────
+model DarshanTiming {
+  id          String  @id @default(cuid())
+  label       String  // "Morning", "Afternoon", "Evening"
+  openTime    String  // "06:00"
+  closeTime   String  // "12:00"
+  isHunnime   Boolean @default(false)
+  notes       String?
+  isActive    Boolean @default(true)
+}
+
+// ─────────────────────────────────────────────
+// Notices & Announcements
+// ─────────────────────────────────────────────
+model Notice {
+  id        String   @id @default(cuid())
+  title     String
+  content   String
+  type      NoticeType @default(INFO)
+  isActive  Boolean  @default(true)
+  startDate DateTime @default(now())
+  endDate   DateTime?
+  createdAt DateTime @default(now())
+}
+
+enum NoticeType {
+  INFO
+  WARNING
+  HUNNIME
+  CLOSURE
+  SPECIAL
+}
+
+// ─────────────────────────────────────────────
+// Gallery
+// ─────────────────────────────────────────────
+model GalleryItem {
+  id          String      @id @default(cuid())
+  title       String
+  url         String
+  thumbnailUrl String?
+  type        MediaType   @default(IMAGE)
+  category    String      // "hunnime", "festival", "daily", "temple"
+  isHunnime   Boolean     @default(false)
+  isFeatured  Boolean     @default(false)
+  uploadedAt  DateTime    @default(now())
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+  YOUTUBE
+}

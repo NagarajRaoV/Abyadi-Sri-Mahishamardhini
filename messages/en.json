@@ -1,0 +1,184 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "darshan": "Darshan & Timings",
+    "hunnime": "Hunnime Pooja",
+    "sevas": "Sevas & Poojas",
+    "donations": "Donate",
+    "festivals": "Festivals",
+    "media": "Live Darshan",
+    "visit": "Plan Your Visit",
+    "contact": "Contact",
+    "bookHunnime": "Book Hunnime Pooja",
+    "bookSeva": "Book Seva",
+    "donate": "Donate Now",
+    "liveDarshan": "Live Darshan"
+  },
+  "home": {
+    "hero": {
+      "title": "Abyadi Sri Mahishamardhini Temple",
+      "subtitle": "Hosangadi · Hole Shankaranarayana · Udupi, Karnataka",
+      "tagline": "Blessings of Goddess Mahishamardhini — Slayer of Mahishasura",
+      "hunnimeBadge": "⟡ Famous for Hunnime Pooja ⟡"
+    },
+    "nextHunnime": {
+      "label": "Next Hunnime (Full Moon) Pooja",
+      "bookNow": "Book Now",
+      "daysAway": "days away"
+    },
+    "quickInfo": {
+      "darshan": "Today's Darshan",
+      "nextAarti": "Next Aarti",
+      "hunnime": "Next Hunnime",
+      "todayEvents": "Today's Events"
+    },
+    "hunnimeHighlight": {
+      "title": "Hunnime Pooja — Our Signature Ritual",
+      "subtitle": "Pournami / Full Moon Pooja",
+      "description": "On every full moon night, thousands of devotees gather at Abyadi Sri Mahishamardhini Temple to witness the magnificent Hunnime Pooja — a grand ritual celebrating the divine power of Goddess Mahishamardhini. The temple glows with lamps, fragrant flowers, and the resonance of Vedic chants under the full moon.",
+      "learnMore": "Learn About Hunnime Pooja",
+      "bookNow": "Book Hunnime Pooja"
+    },
+    "about": {
+      "title": "About the Temple",
+      "description": "Nestled in the serene Western Ghats near Hole Shankaranarayana, Abyadi Sri Mahishamardhini Temple is a revered shrine dedicated to Goddess Mahishamardhini — the divine form of Durga who vanquished the demon Mahishasura. The temple's ancient traditions, especially the Hunnime Pooja, draw pilgrims from across Karnataka and beyond.",
+      "learnMore": "Read Full History"
+    },
+    "sevasTitle": "Popular Sevas & Poojas",
+    "festivalsTitle": "Upcoming Festivals",
+    "donateTitle": "Support the Temple"
+  },
+  "hunnime": {
+    "title": "Hunnime Pooja",
+    "subtitle": "Pournami / Full Moon Pooja — Signature Ritual of Abyadi Temple",
+    "overview": {
+      "title": "What is Hunnime Pooja?",
+      "description": "Hunnime Pooja (also called Pournami Pooja or Full Moon Pooja) is performed on the day of the full moon (Pournami) every month. At Abyadi Sri Mahishamardhini Temple, this ritual holds extraordinary significance — the full moon amplifies the divine energy of Goddess Mahishamardhini, and devotees believe that prayers offered on this day are answered with special grace.",
+      "significance": "Spiritual Significance",
+      "sigDescription": "The full moon is considered supremely auspicious in the Shakti tradition. Goddess Mahishamardhini, the destroyer of evil, is especially propitiated on Pournami. The ritual includes an elaborate abhishekam with sacred liquids, alankaram with 108 flowers, special homams, and a grand Mahamangala Arati witnessed by hundreds of devotees."
+    },
+    "schedule": {
+      "title": "Ritual Schedule on Hunnime Day",
+      "timeline": [
+        { "time": "04:30 AM", "ritual": "Nirmalya Visharjana (Removal of previous day's offerings)", "notes": "" },
+        { "time": "05:00 AM", "ritual": "Prabhata Pooja (Dawn worship)", "notes": "Temple opens for early darshan" },
+        { "time": "06:00 AM", "ritual": "Hunnime Abhishekam begins", "notes": "Panchamruta & Shodasha Upachara Puja" },
+        { "time": "07:30 AM", "ritual": "Special Alankaram (Floral decoration)", "notes": "108 flowers, turmeric, kumkuma" },
+        { "time": "08:30 AM", "ritual": "Mahamangala Arati", "notes": "Main public darshan — arrive early" },
+        { "time": "09:30 AM", "ritual": "Archana & Individual Sevas", "notes": "Devotee-sponsored poojas" },
+        { "time": "12:00 PM", "ritual": "Madhyana Pooja & Naivedya", "notes": "Midday offering, brief closure" },
+        { "time": "05:30 PM", "ritual": "Evening Abhishekam", "notes": "Second special abhishekam of the day" },
+        { "time": "07:00 PM", "ritual": "Pradosha Pooja", "notes": "Evening puja, lamps lit" },
+        { "time": "08:00 PM", "ritual": "Ratri Hunnime Arati", "notes": "Grand night arati under the full moon — most celebrated ritual" },
+        { "time": "08:45 PM", "ritual": "Prasad Distribution", "notes": "Temple closes after prasad" }
+      ]
+    },
+    "participate": {
+      "title": "How to Participate",
+      "inPerson": {
+        "title": "In Person",
+        "tips": [
+          "Arrive by 7:00 AM for morning Mahamangala Arati — queue forms early",
+          "Wear traditional attire (saree/dhoti preferred); no sleeveless or shorts",
+          "Collect your queuing token at the entrance gate",
+          "Photography permitted only in the outer courtyard",
+          "Children and elderly may use priority darshan line",
+          "For evening arati, arrive by 7:00 PM for best darshan"
+        ]
+      },
+      "online": {
+        "title": "Online Participation",
+        "description": "Can't attend in person? Watch the Hunnime Arati live on our YouTube channel. Special sevas can be booked online and performed on your behalf by the temple priests."
+      }
+    },
+    "booking": {
+      "title": "Book Hunnime Pooja Seva",
+      "selectDate": "Select Hunnime Date",
+      "selectSeva": "Select Seva Type",
+      "devoteeDetails": "Devotee Details",
+      "payment": "Payment",
+      "confirmation": "Confirmation",
+      "sevaTypes": [
+        "Special Archana (Full Moon)",
+        "Panchamruta Abhishekam Sponsorship",
+        "Pushpa Alankaram (Floral Decoration)",
+        "Annadanam (Meal Offering to Devotees)",
+        "Homam Sponsorship",
+        "Deepa Seva (108 Lamps)"
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "q": "How crowded does it get on Hunnime days?",
+          "a": "Hunnime Poojas draw 500–2000+ devotees depending on the month. Karthika Pournami (Oct/Nov) is the most crowded. Arrive 90 minutes before arati for comfortable darshan."
+        },
+        {
+          "q": "Is there parking available?",
+          "a": "Yes, a temporary parking area is set up 300m from the temple on Hunnime days. Shuttle service available from parking to temple on major Pournami days."
+        },
+        {
+          "q": "Can I book Hunnime Pooja seva in advance?",
+          "a": "Yes! You can book up to 3 months in advance online. We recommend booking at least 2 weeks before the date as slots fill up fast."
+        },
+        {
+          "q": "Is food available?",
+          "a": "Annadanam (free meals) is served on most Hunnime days. Nearby shops and a temple canteen are open from 6 AM to 9 PM."
+        },
+        {
+          "q": "What should I bring?",
+          "a": "Your booking confirmation (printed or digital), flowers/coconut if you wish to offer, and comfortable footwear that is easy to remove."
+        }
+      ]
+    }
+  },
+  "darshan": {
+    "title": "Darshan & Timings",
+    "regular": "Regular Timings",
+    "hunnimeDay": "Hunnime Day Timings",
+    "morning": "Morning",
+    "afternoon": "Afternoon",
+    "evening": "Evening",
+    "dressCode": "Dress Code",
+    "photography": "Photography Policy",
+    "notices": "Current Notices"
+  },
+  "sevas": {
+    "title": "Sevas & Poojas",
+    "hunnimeSpecial": "Hunnime Special Sevas",
+    "daily": "Daily Sevas",
+    "bookNow": "Book Now",
+    "duration": "Duration",
+    "amount": "Amount",
+    "includes": "Includes"
+  },
+  "donations": {
+    "title": "Support the Temple",
+    "subtitle": "Your contribution sustains the divine traditions of Abyadi Sri Mahishamardhini Temple",
+    "categories": {
+      "GENERAL": "General Donation",
+      "ANNADANAM": "Annadanam (Free Meals)",
+      "RENOVATION": "Temple Renovation",
+      "FESTIVAL_FUND": "Festival Fund",
+      "HUNNIME_POOJA": "Hunnime Pooja Fund",
+      "GOPURAM": "Gopuram Construction",
+      "EDUCATION": "Vedic Education"
+    },
+    "receipt80G": "80G Receipt available",
+    "secure": "100% Secure Payments via Razorpay"
+  },
+  "common": {
+    "bookNow": "Book Now",
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "close": "Close",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "loading": "Loading...",
+    "success": "Success!",
+    "error": "Something went wrong. Please try again.",
+    "rupee": "₹"
+  }
+}
